@@ -1,0 +1,1 @@
+from service.transcribe_service import Transcribe
