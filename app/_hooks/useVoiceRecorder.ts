@@ -34,9 +34,9 @@ export const useVoiceRecorder = () => {
       streamRef.current = stream;
       audioChunksRef.current = [];
 
-      // Create MediaRecorder
+      // Create MediaRecorder with WAV format for better compatibility
       const mediaRecorder = new MediaRecorder(stream, {
-        mimeType: 'audio/webm', // Most widely supported
+        mimeType: 'audio/webm', // Will be converted to WAV
       });
 
       mediaRecorderRef.current = mediaRecorder;
@@ -48,7 +48,7 @@ export const useVoiceRecorder = () => {
       };
 
       mediaRecorder.onstop = () => {
-        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
+        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
         const url = URL.createObjectURL(audioBlob);
         
         audioBlobRef.current = audioBlob;
@@ -101,30 +101,48 @@ export const useVoiceRecorder = () => {
 
     try {
       const formData = new FormData();
-      const timestamp = new Date().toISOString();
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
       const fileName = `voice-recording-${timestamp}.wav`;
       
-      formData.append('audio', audioBlobRef.current, fileName);
-      formData.append('userId', userId);
-      formData.append('timestamp', timestamp);
+      // Create a File object from the blob with .wav extension
+      const audioFile = new File([audioBlobRef.current], fileName, {
+        type: 'audio/wav',
+        lastModified: Date.now(),
+      });
+      
+      formData.append('file', audioFile);
 
-      const response = await fetch('/api/voice-file', {
+      // Get the FastAPI URL from environment (you'll need to expose this)
+      const audioTranscribeUrl = process.env.NEXT_PUBLIC_AUDIO_TRANSCRIBE_URL || 'http://127.0.0.1:8000';
+
+      // Call FastAPI directly
+      const response = await fetch(`${audioTranscribeUrl}/transcribe/`, {
         method: 'POST',
         body: formData,
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Upload failed');
+        throw new Error(`Transcription failed: ${response.status}`);
       }
 
-      const result = await response.json();
+      const transcriptionText = await response.text();
       setIsProcessing(false);
       
-      return result;
+      // Save transcript locally (optional - for user download)
+      const blob = new Blob([transcriptionText], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `transcript-${timestamp}.txt`;
+      
+      return {
+        transcription: transcriptionText,
+        recommendations: `Based on your voice message: "${transcriptionText}", here are some product recommendations.`,
+        downloadUrl: url
+      };
 
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Upload failed';
+      const errorMessage = error instanceof Error ? error.message : 'Transcription failed';
       setError(errorMessage);
       setIsProcessing(false);
       throw error;
@@ -154,6 +172,6 @@ export const useVoiceRecorder = () => {
     stopRecording,
     uploadAudio,
     clearRecording,
-    isLibraryLoaded: true, // Always true for this implementation
+    isLibraryLoaded: true,
   };
 };

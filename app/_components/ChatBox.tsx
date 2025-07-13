@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Mic, Send, MicOff, Square, Upload } from 'lucide-react';
+import { Mic, Send, MicOff, Square, Upload, Download } from 'lucide-react';
 import { useVoiceRecorder } from '../_hooks/useVoiceRecorder';
 
 const ChatBox: React.FC = () => {
@@ -63,7 +63,7 @@ const ChatBox: React.FC = () => {
         sender: 'ai' 
       }]);
 
-      // Upload audio and get transcription + recommendations
+      // Upload audio and get transcription
       const result = await uploadAudio('user-123');
 
       // Remove loading message
@@ -85,6 +85,17 @@ const ChatBox: React.FC = () => {
         sender: 'ai' 
       }]);
 
+      // If there's a download URL, show download option
+      if (result.downloadUrl) {
+        const downloadId = generateUniqueId();
+        setMessages(prev => [...prev, { 
+          id: downloadId, 
+          text: "📄 Transcript saved! Click to download.", 
+          sender: 'ai',
+          downloadUrl: result.downloadUrl
+        }]);
+      }
+
       // Clear the recording
       clearRecording();
 
@@ -100,6 +111,12 @@ const ChatBox: React.FC = () => {
         sender: 'ai' 
       }]);
     }
+  };
+
+  const handleDownloadTranscript = (downloadUrl: string) => {
+    const a = document.createElement('a');
+    a.href = downloadUrl;
+    a.click();
   };
 
   const handleSendMessage = async () => {
@@ -238,7 +255,18 @@ const ChatBox: React.FC = () => {
                   : 'bg-gray-800 text-purple-100 border border-purple-700/30'
               }`}
             >
-              {msg.text}
+              <div className="flex items-center justify-between">
+                <span>{msg.text}</span>
+                {msg.downloadUrl && (
+                  <button
+                    onClick={() => handleDownloadTranscript(msg.downloadUrl!)}
+                    className="ml-2 p-1 bg-purple-600 hover:bg-purple-700 rounded transition-colors"
+                    title="Download transcript"
+                  >
+                    <Download size={12} />
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         ))}
