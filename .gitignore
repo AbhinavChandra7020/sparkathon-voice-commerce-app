@@ -75,6 +75,7 @@ share/python-wheels/
 MANIFEST
 
 # Virtual environments
+sparkathon/
 venv/
 env/
 ENV/

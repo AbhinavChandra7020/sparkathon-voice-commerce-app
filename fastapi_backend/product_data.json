@@ -1,0 +1,184 @@
+{
+  "products": [
+    {
+      "ProductID": "ELC001",
+      "ProductTitle": "iPhone 15 Pro Max",
+      "ProductDescription": "Latest Apple flagship with titanium design, A17 Pro chip, and advanced camera system with 5x optical zoom",
+      "ProductCategory": "Electronics",
+      "ProductImg": "https://example.com/images/iphone15promax.jpg",
+      "Brand": "Apple",
+      "Price": 1199.99
+    },
+    {
+      "ProductID": "ELC002",
+      "ProductTitle": "Samsung Galaxy S24 Ultra",
+      "ProductDescription": "Premium Android smartphone with S Pen, 200MP camera, and AI-powered features",
+      "ProductCategory": "Electronics",
+      "ProductImg": "https://example.com/images/galaxys24ultra.jpg",
+      "Brand": "Samsung",
+      "Price": 1299.99
+    },
+    {
+      "ProductID": "ELC003",
+      "ProductTitle": "Sony WH-1000XM5 Headphones",
+      "ProductDescription": "Industry-leading noise canceling wireless headphones with 30-hour battery life",
+      "ProductCategory": "Electronics",
+      "ProductImg": "https://example.com/images/sonywh1000xm5.jpg",
+      "Brand": "Sony",
+      "Price": 399.99
+    },
+    {
+      "ProductID": "ELC004",
+      "ProductTitle": "MacBook Air M3",
+      "ProductDescription": "Ultra-thin laptop with M3 chip, 18-hour battery life, and stunning Liquid Retina display",
+      "ProductCategory": "Electronics",
+      "ProductImg": "https://example.com/images/macbookairm3.jpg",
+      "Brand": "Apple",
+      "Price": 1299.99
+    },
+    {
+      "ProductID": "ELC005",
+      "ProductTitle": "Nintendo Switch OLED",
+      "ProductDescription": "Gaming console with vibrant OLED screen, enhanced audio, and adjustable wide stand",
+      "ProductCategory": "Electronics",
+      "ProductImg": "https://example.com/images/nintendoswitcholed.jpg",
+      "Brand": "Nintendo",
+      "Price": 349.99
+    },
+    {
+      "ProductID": "CLO001",
+      "ProductTitle": "Nike Air Max 270",
+      "ProductDescription": "Lifestyle sneakers with large Max Air unit for all-day comfort and modern style",
+      "ProductCategory": "Clothing",
+      "ProductImg": "https://example.com/images/nikeairmax270.jpg",
+      "Brand": "Nike",
+      "Price": 149.99
+    },
+    {
+      "ProductID": "CLO002",
+      "ProductTitle": "Adidas Ultraboost 22",
+      "ProductDescription": "Premium running shoes with responsive Boost midsole and Primeknit upper",
+      "ProductCategory": "Clothing",
+      "ProductImg": "https://example.com/images/adidasultraboost22.jpg",
+      "Brand": "Adidas",
+      "Price": 189.99
+    },
+    {
+      "ProductID": "CLO003",
+      "ProductTitle": "Levi's 501 Original Jeans",
+      "ProductDescription": "Classic straight-fit jeans with button fly, the original and the best since 1873",
+      "ProductCategory": "Clothing",
+      "ProductImg": "https://example.com/images/levis501.jpg",
+      "Brand": "Levi's",
+      "Price": 79.99
+    },
+    {
+      "ProductID": "CLO004",
+      "ProductTitle": "Ralph Lauren Polo Shirt",
+      "ProductDescription": "Classic fit cotton mesh polo shirt with signature embroidered pony logo",
+      "ProductCategory": "Clothing",
+      "ProductImg": "https://example.com/images/ralphlauren_polo.jpg",
+      "Brand": "Ralph Lauren",
+      "Price": 89.99
+    },
+    {
+      "ProductID": "CLO005",
+      "ProductTitle": "North Face Fleece Jacket",
+      "ProductDescription": "Warm and comfortable fleece jacket perfect for outdoor activities and casual wear",
+      "ProductCategory": "Clothing",
+      "ProductImg": "https://example.com/images/northface_fleece.jpg",
+      "Brand": "The North Face",
+      "Price": 129.99
+    },
+    {
+      "ProductID": "GRO001",
+      "ProductTitle": "Organic Avocados 4-Pack",
+      "ProductDescription": "Fresh organic Hass avocados, perfect for guacamole, toast, or salads",
+      "ProductCategory": "Grocery",
+      "ProductImg": "https://example.com/images/organic_avocados.jpg",
+      "Brand": "Whole Foods Market",
+      "Price": 5.99
+    },
+    {
+      "ProductID": "GRO002",
+      "ProductTitle": "Starbucks Pike Place Coffee",
+      "ProductDescription": "Medium roast ground coffee beans with smooth, balanced flavor",
+      "ProductCategory": "Grocery",
+      "ProductImg": "https://example.com/images/starbucks_pike.jpg",
+      "Brand": "Starbucks",
+      "Price": 8.99
+    },
+    {
+      "ProductID": "GRO003",
+      "ProductTitle": "Ben & Jerry's Chunky Monkey",
+      "ProductDescription": "Banana ice cream with fudge chunks and walnuts in a pint container",
+      "ProductCategory": "Grocery",
+      "ProductImg": "https://example.com/images/chunky_monkey.jpg",
+      "Brand": "Ben & Jerry's",
+      "Price": 4.99
+    },
+    {
+      "ProductID": "GRO004",
+      "ProductTitle": "Tropicana Orange Juice",
+      "ProductDescription": "100% pure orange juice with no added sugar, pulp-free variety",
+      "ProductCategory": "Grocery",
+      "ProductImg": "https://example.com/images/tropicana_oj.jpg",
+      "Brand": "Tropicana",
+      "Price": 3.99
+    },
+    {
+      "ProductID": "GRO005",
+      "ProductTitle": "Cheerios Cereal Family Size",
+      "ProductDescription": "Heart-healthy whole grain oat cereal, family size box",
+      "ProductCategory": "Grocery",
+      "ProductImg": "https://example.com/images/cheerios.jpg",
+      "Brand": "General Mills",
+      "Price": 6.99
+    },
+    {
+      "ProductID": "GRO006",
+      "ProductTitle": "Coca-Cola 12-Pack Cans",
+      "ProductDescription": "Classic Coca-Cola soft drink in convenient 12-pack of 12oz cans",
+      "ProductCategory": "Grocery",
+      "ProductImg": "https://example.com/images/coca_cola_12pack.jpg",
+      "Brand": "Coca-Cola",
+      "Price": 7.99
+    },
+    {
+      "ProductID": "GRO007",
+      "ProductTitle": "Lay's Classic Potato Chips",
+      "ProductDescription": "Crispy potato chips with the perfect amount of salt, family size bag",
+      "ProductCategory": "Grocery",
+      "ProductImg": "https://example.com/images/lays_classic.jpg",
+      "Brand": "Lay's",
+      "Price": 4.49
+    },
+    {
+      "ProductID": "GRO008",
+      "ProductTitle": "Heinz Tomato Ketchup",
+      "ProductDescription": "America's favorite ketchup made with vine-ripened tomatoes, 32oz bottle",
+      "ProductCategory": "Grocery",
+      "ProductImg": "https://example.com/images/heinz_ketchup.jpg",
+      "Brand": "Heinz",
+      "Price": 3.79
+    },
+    {
+      "ProductID": "GRO009",
+      "ProductTitle": "Nutella Hazelnut Spread",
+      "ProductDescription": "Creamy hazelnut spread with cocoa, perfect for toast or desserts",
+      "ProductCategory": "Grocery",
+      "ProductImg": "https://example.com/images/nutella.jpg",
+      "Brand": "Nutella",
+      "Price": 4.99
+    },
+    {
+      "ProductID": "GRO010",
+      "ProductTitle": "Tide Laundry Detergent Pods",
+      "ProductDescription": "3-in-1 laundry pods with detergent, stain remover, and brightener",
+      "ProductCategory": "Grocery",
+      "ProductImg": "https://example.com/images/tide_pods.jpg",
+      "Brand": "Tide",
+      "Price": 12.99
+    }
+  ]
+}
